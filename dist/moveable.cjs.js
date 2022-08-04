@@ -3,7 +3,7 @@ Copyright (c) 2019 Daybrush
 name: react-moveable
 license: MIT
 author: Daybrush
-repository: https://github.com/daybrush/moveable/blob/master/packages/react-moveable
+repository: https://github.com/abbaseya/react-moveable.git
 version: 0.37.3
 */
 'use strict';
@@ -835,13 +835,11 @@ function getOffsetInfo(el, lastParent, isParent) {
     if (parentNode && parentNode.nodeType === 11) {
       // Shadow Root
       target = parentNode.host;
-      console.log('target (shadow root):', target);
       isCustomElement = true;
       break;
     }
 
     target = parentNode;
-    console.log('target (not shadow root):', target);
     position = "relative";
   }
 
@@ -14704,10 +14702,6 @@ function (_super) {
     });
     this.refTargets = nextRefTargets;
     this.selectorMap = nextSelectorMap;
-
-    if (!isRender && isUpdate) {
-      this.forceUpdate();
-    }
 
     return nextRefTargets;
   };
