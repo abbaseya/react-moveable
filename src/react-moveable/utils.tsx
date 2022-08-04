@@ -159,13 +159,11 @@ export function getOffsetInfo(
         if (parentNode && parentNode.nodeType === 11) {
             // Shadow Root
             target = (parentNode as ShadowRoot).host as HTMLElement;
-            console.log('target (shadow root):', target);
             isCustomElement = true;
             break;
         }
         
         target = parentNode as HTMLElement | SVGElement;
-        console.log('target (not shadow root):', target);
         position = "relative";
     }
     return {
