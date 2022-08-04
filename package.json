@@ -45,12 +45,12 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/daybrush/moveable/blob/master/packages/react-moveable"
+        "url": "https://github.com/abbaseya/react-moveable.git"
     },
     "author": "Daybrush",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/daybrush/moveable/issues"
+        "url": "https://github.com/abbaseya/react-moveable/issues"
     },
     "homepage": "https://daybrush.com/moveable",
     "devDependencies": {
