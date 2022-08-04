@@ -13032,17 +13032,21 @@ function (_super) {
   };
 
   __proto.componentWillUnmount = function () {
-    this.isUnmounted = true;
+    try {
+      this.isUnmounted = true;
 
-    this._emitter.off();
+      this._emitter.off();
 
-    unset(this, "targetGesto");
-    unset(this, "controlGesto");
-    var events = this.events;
+      unset(this, "targetGesto");
+      unset(this, "controlGesto");
+      var events = this.events;
 
-    for (var name in events) {
-      var manager = events[name];
-      manager && manager.destroy();
+      for (var name in events) {
+        var manager = events[name];
+        manager && manager.destroy();
+      }
+    } catch (err) {
+      console.log('componentWillUnmount:', err);
     }
   };
   /**
@@ -14702,6 +14706,10 @@ function (_super) {
     });
     this.refTargets = nextRefTargets;
     this.selectorMap = nextSelectorMap;
+
+    if (!isRender && isUpdate) {
+      this.forceUpdate();
+    }
 
     return nextRefTargets;
   };
