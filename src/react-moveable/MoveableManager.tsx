@@ -173,15 +173,19 @@ export default class MoveableManager<T = {}>
         this._updateObserver(prevProps);
     }
     public componentWillUnmount() {
-        this.isUnmounted = true;
-        this._emitter.off();
-        unset(this, "targetGesto");
-        unset(this, "controlGesto");
-
-        const events = this.events;
-        for (const name in events) {
-            const manager = events[name];
-            manager && manager.destroy();
+        try {
+            this.isUnmounted = true;
+            this._emitter.off();
+            unset(this, "targetGesto");
+            unset(this, "controlGesto");
+    
+            const events = this.events;
+            for (const name in events) {
+                const manager = events[name];
+                manager && manager.destroy();
+            }
+        } catch (err) {
+            console.log('componentWillUnmount:', err);
         }
     }
     /**

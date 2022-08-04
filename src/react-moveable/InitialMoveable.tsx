@@ -139,7 +139,7 @@ export class InitialMoveable<T = {}>
         this.selectorMap = nextSelectorMap;
 
         if (!isRender && isUpdate) {
-            // this.forceUpdate();
+            this.forceUpdate();
         }
         return nextRefTargets;
     }
